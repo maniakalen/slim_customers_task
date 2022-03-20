@@ -1,0 +1,43 @@
+{% extends "layout.twig" %}
+
+{% block toolbar %}
+    <div class="text-light bg-dark" style="height: 40px;">Customers form <a href="/customers/index" class="btn btn-link text-light float-end">Back to table</a></div>
+{% endblock %}
+
+{% block table %}
+    Edit customer: {{ user.first_name }} {{ user.last_name }}
+{% endblock %}
+
+{% block form %}
+    <form enctype="application/x-www-form-urlencoded" method="POST" action="/customers/update/{{ user.id }}">
+        <div class="form-group">
+            <label for="firstName">First name</label>
+            <input type="text" class="form-control" id="firstName" name="first_name" placeholder="Enter first name" value="{{ user.first_name }}">
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last name</label>
+            <input type="text" class="form-control" id="lastName" name="last_name" placeholder="Enter last name" value="{{ user.last_name }}">
+        </div>
+        <div class="form-group">
+            <label for="InputEmail1">Email address</label>
+            <input type="email" class="form-control" id="InputEmail1" name="email" aria-describedby="emailHelp" placeholder="Enter email"  value="{{ user.email }}">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+            <label for="InputPhoneNumber">Phone number</label>
+            <input type="text" class="form-control" id="InputPhoneNumber" name="phone" aria-describedby="phoneHelp" placeholder="Enter phone number"  value="{{ user.phone }}">
+            <small id="phoneHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+            <label for="prioritySelect">Priority</label>
+            <select  class="form-control" id="prioritySelect" name="priority">
+                {% for i in 1..5 %}
+                <option value="{{ i }}" {% if i == user.priority %}selected="selected"{% endif %}>{{ i }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Submit" class="form-control btn btn-primary mt-md-5" />
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,29 @@
+<html>
+<head>
+    {% block head %}
+    <title>
+        Customers control page
+    </title>
+    <link rel='stylesheet' id='main-style-css' href='/assets/bootstrap/css/bootstrap.css' type='text/css' media='all' />
+    {% endblock %}
+</head>
+<body>
+{% block toolbar %}
+<div class="text-light bg-dark" style="height: 40px;">Customers list</div>
+{% endblock %}
+<div class="container col-md-6">
+    {% block table %}
+
+    {% endblock %}
+</div>
+<hr />
+<div class="container col-md-4">
+    {% block form %}
+    {% endblock %}
+</div>
+{% block scripts %}
+<script type="text/javascript" src="/assets/jquery.min.js"></script>
+<script type="text/javascript" src="/assets/bootstrap/js/bootstrap.js"></script>
+{% endblock %}
+</body>
+</html>
