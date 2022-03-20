@@ -1,1 +1,1 @@
-# slim_customers_task
+# Slim Customers Task
